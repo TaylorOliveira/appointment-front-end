@@ -1,0 +1,33 @@
+<header>
+  <nav class="navbar navbar-expand-md p-2 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+   
+    <h5 class="mx-2 mt-2 mr-md-auto font-weight-normal align-middle">EA</h5>
+    
+    <div class="collapse navbar-collapse ml-4" id="navbarCollapse" *ngIf="usuario">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/multa">Médicos <span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/multa">Paciente<span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+      <div class="mt-2 mt-md-0">
+        {{usuario}}
+        <button class="btn btn-outline-primary my-2 my-sm-0" type="button" (click)="logout()">Sair</button>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<div *ngIf="processando" style="position: fixed; top: 0; z-index: 999; width: 100%;">
+  <div style="margin: 0 auto; box-shadow: 0px 1px 4px #c78f2a;" class="row w-25 justify-content-center alert alert-warning" role="alert">Processando...</div>
+</div>
+
+<router-outlet></router-outlet>
+
+<footer>
+  <p class="mt-5 font-weight-bold" style="text-align: center;">Atendimento Eldorado</p>
+</footer>
