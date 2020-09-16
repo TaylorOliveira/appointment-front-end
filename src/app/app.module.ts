@@ -10,11 +10,15 @@ import { AppComponent } from './app.component';
 
 import { LoginComponent } from './login/login.component';
 import { PadraoInterceptor } from './padrao.interceptor';
+import { DoctorComponent } from './doctor/doctor.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    DoctorComponent,
+    HomeComponent,
   ],
   imports: [
     AppRoutingModule,
