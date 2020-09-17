@@ -23,10 +23,6 @@ export class LoginComponent implements OnInit {
   }
 
   logar() {
-    let formData: FormData = new FormData();
-    formData.append("username", this.login);
-    formData.append("password", this.senha);
-
     this._loginService.logarUsuario(this.login, this.senha).subscribe(
       retorno => this._router.navigate(['/home']),
       (erro: HttpErrorResponse) => {

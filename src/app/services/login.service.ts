@@ -29,11 +29,10 @@ export class LoginService {
   usuarioDeslogou$ = this.usuarioDeslogouSource.asObservable();
   
   logarUsuario(login: string, senha: string) {
-    debugger
-
+    
     const params = new HttpParams()
-    .set('username', login)
-    .set('password', senha);
+      .set('username', login)
+      .set('password', senha);
     
     return this._requisicaoService.post(`${environment.base_api_url}/login`, params).pipe(
       tap(
@@ -48,7 +47,7 @@ export class LoginService {
   }
 
   searchUser() {
-    return this._requisicaoService.get<Usuario>(`${environment.base_api_url}/usuario`)
+    return this._requisicaoService.get<Usuario>(`${environment.base_api_url}/api/user`)
   }
 
   logout() {

@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
 import { LoginService } from './services/login.service';
 import { RequisicaoService } from './services/requisicao.service';
 
@@ -15,8 +13,7 @@ export class AppComponent {
   usuario: string = sessionStorage['usuario'];
   processando = false;
 
-  constructor(private _http: HttpClient, 
-    private _router: Router, 
+  constructor( 
     private _loginService: LoginService,
     private _requisicaoService: RequisicaoService) { 
 
@@ -35,6 +32,8 @@ export class AppComponent {
     _requisicaoService.finalizouRequisicao$.subscribe(
       ret => this.processando = false
     )
+
+    console.log(this.usuario);
   }
 
   logout() {
