@@ -1,19 +1,10 @@
 <div class="container">
+    <form [formGroup]="formGroup">
+        <h3>Agendamento de consulta</h3>
+        
+        <ng-select *ngIf="doctors && doctors.length > 0" [items]="doctors" formControlName="doctors"
+            bindLabel="nome" bindValue="name" placeholder="Selecione um médico"></ng-select>
 
-    <h3>Médicos</h3>
 
-    <table class="table table-hover">
-        <thead class="thead-dark">
-            <tr class="text-center">
-            <th scope="col">Nome</th>
-            <th scope="col">CRM</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr class="text-center" *ngFor="let doctor of doctors">
-                <td scope="row">{{doctor.nome}}</td>
-                <td scope="row">{{doctor.crm}}</td>
-            </tr>
-        </tbody>
-    </table>
+    </form>
 </div>

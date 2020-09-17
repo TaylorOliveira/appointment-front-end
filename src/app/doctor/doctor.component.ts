@@ -10,7 +10,7 @@ import { DoctorService } from '../services/doctor.service';
 })
 export class DoctorComponent implements OnInit {
 
-  doctors: any[] = [];
+  public doctors: any[] = [];
 
   constructor(private doctorService: DoctorService) { }
 

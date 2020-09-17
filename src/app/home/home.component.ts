@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  appointments: any[] = 
+  public appointments: any[] = 
     [
         {
             "id": 1,
