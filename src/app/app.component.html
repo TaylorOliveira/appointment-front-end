@@ -4,7 +4,7 @@
     <img src="assets/img/logo.png" />
     <h5 class="mx-2 mt-2 mr-md-auto font-weight-normal align-middle">Eldorado Atendimento</h5>
     
-    <div class="collapse navbar-collapse ml-4" id="navbarCollapse">
+    <div class="collapse navbar-collapse ml-4" id="navbarCollapse" *ngIf="usuario">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
           <a class="nav-link" routerLink="/home">Consultas<span class="sr-only">(current)</span></a>

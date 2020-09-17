@@ -17,8 +17,8 @@ export class LoginComponent implements OnInit {
   constructor(private _http: HttpClient, private _router: Router, private _loginService: LoginService) { }
 
   ngOnInit() {
-    if (sessionStorage['usuario']) {
-      this._router.navigate(['/multa']);
+    if (sessionStorage['user']) {
+      this._router.navigate(['/home']);
     }
   }
 
@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
     formData.append("password", this.senha);
 
     this._loginService.logarUsuario(this.login, this.senha).subscribe(
-      retorno => this._router.navigate(['/multa']),
+      retorno => this._router.navigate(['/home']),
       (erro: HttpErrorResponse) => {
         switch(erro.status) {
           case 401:

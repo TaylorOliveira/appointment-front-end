@@ -33,9 +33,9 @@ export class LoginService {
     formData.append("username", login);
     formData.append("password", senha);
 
-    return this._requisicaoService.post(`${environment.base_api_url}/login`, formData).pipe(
+    return this._requisicaoService.post(`${environment.base_api_url}`, formData).pipe(
       tap(
-        sucesso => this.buscarUsuario().subscribe(
+        sucesso => this.searchUser().subscribe(
           usuario => {
             sessionStorage['usuario'] = usuario.nome;
             this.usuarioLogouSource.next(usuario.nome);
@@ -45,7 +45,7 @@ export class LoginService {
     )
   }
 
-  buscarUsuario() {
+  searchUser() {
     return this._requisicaoService.get<Usuario>(`${environment.base_api_url}/usuario`)
   }
 
