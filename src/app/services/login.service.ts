@@ -1,6 +1,6 @@
 import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { of, Observable, Subject } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
@@ -29,11 +29,13 @@ export class LoginService {
   usuarioDeslogou$ = this.usuarioDeslogouSource.asObservable();
   
   logarUsuario(login: string, senha: string) {
-    let formData: FormData = new FormData();
-    formData.append("username", login);
-    formData.append("password", senha);
+    debugger
 
-    return this._requisicaoService.post(`${environment.base_api_url}`, formData).pipe(
+    const params = new HttpParams()
+    .set('username', login)
+    .set('password', senha);
+    
+    return this._requisicaoService.post(`${environment.base_api_url}/login`, params).pipe(
       tap(
         sucesso => this.searchUser().subscribe(
           usuario => {
