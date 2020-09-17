@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { NgxMaskModule, IConfig } from 'ngx-mask';
 import { NgSelectModule } from '@ng-select/ng-select';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -14,12 +13,8 @@ import { PadraoInterceptor } from './padrao.interceptor';
 import { DoctorComponent } from './doctor/doctor.component';
 import { HomeComponent } from './home/home.component';
 import { AppointmentComponent } from './appointment/appointment.component';
+import { DoctorFormComponent } from './doctor-form/doctor-form.component';
 
-const maskConfigFunction: () => Partial<IConfig> = () => {
-  return {
-    validation: false,
-  };
-};
 
 @NgModule({
   declarations: [
@@ -28,6 +23,7 @@ const maskConfigFunction: () => Partial<IConfig> = () => {
     DoctorComponent,
     HomeComponent,
     AppointmentComponent,
+    DoctorFormComponent,
   ],
   imports: [
     NgSelectModule,
@@ -36,8 +32,7 @@ const maskConfigFunction: () => Partial<IConfig> = () => {
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule,
-    NgxMaskModule.forRoot(maskConfigFunction)
+    HttpClientModule
   ],
   providers: [
     {

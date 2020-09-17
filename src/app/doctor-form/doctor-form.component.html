@@ -1,6 +1,6 @@
 <div class="container">
-    <form [formGroup]="formGroup" (ngSubmit)="createAppointment()">
-        <h3>Agendamento de consulta</h3>
+    <form [formGroup]="formGroup" (ngSubmit)="createDoctors()">
+        <h3>Cadastro de médico</h3>
         <br>
 
         <div class="alert alert-danger" role="alert" *ngIf="error">
@@ -9,13 +9,20 @@
 
         <div class="row">
             <div class="col-md-12 form-group">
-                <label class="font-weight-bold" for="patrimonio">Selecione por qual médico deseja ser atendido
+                <label class="font-weight-bold" for="patrimonio">Nome
                     <span style="color: red;">*</span>
                 </label>
-                <ng-select *ngIf="doctors && doctors.length > 0" [items]="doctors" formControlName="doctor"
-                    bindLabel="nome" bindValue="id" placeholder="Selecione um médico"></ng-select>
+                <input type="text" formControlName="nome" class="form-control" id="nnome" placeholder="Digite um nome">
+            </div>
+
+            <div class="col-md-12 form-group">
+                <label class="font-weight-bold" for="patrimonio">CRM
+                    <span style="color: red;">*</span>
+                </label>
+                <input type="text" formControlName="crm" class="form-control" id="nnome" placeholder="Digite o CRM">
             </div>
         </div>
+
         <div class="row">
             <div class="col-md-12">
                 <input type="submit" style="margin-left: 5px;" class="btn btn-success my-4 px-4 float-right" value="Salvar">

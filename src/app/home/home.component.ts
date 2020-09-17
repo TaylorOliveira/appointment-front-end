@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+import { AppointmentService } from '../services/appointment.service';
 
 @Component({
   selector: 'app-home',
@@ -8,28 +11,25 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  public appointments: any[] = 
-    [
-        {
-            "id": 1,
-            "doctorResponse": {
-                "id": 1,
-                "nome": "TAYLOR SANTOS OLIVEIRA",
-                "crm": "56789/RQE 0001"
-            },
-            "patientResponse": {
-                "id": 1,
-                "name": "JULIANA MATTOS",
-                "cpf": "04778667190"
-            },
-            "apponintmentTime": "2020-09-16T22:39:11.506+00:00"
-        }
-    ];
+  public appointments: any[] = [];
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, 
+              private readonly appointmentService: AppointmentService) { }
 
   ngOnInit() {
-    console.log(this.appointments);
+    this.listAppointment();
+  }
+
+  public listAppointment(){
+    this.appointmentService.listAppointment()
+    .pipe(
+        catchError((): Observable<any> => {
+            return null;
+        })
+    ).subscribe((dados: any) => {
+      console.log(dados);
+      this.appointments = dados;
+    });
   }
 
   getAppointments(){

@@ -1,22 +1,22 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
 import { ApiFacade } from '../core/api.facade';
 
 @Injectable({
   providedIn: 'root'
 })
-export class DoctorService {
+export class AppointmentService {
 
-  constructor(private readonly apiService: ApiFacade) {}
+  constructor(private readonly apiService: ApiFacade) { }
 
-  public createDoctor(obj: any): Observable<any> {
-    return this.apiService.post('/api/doctor', obj);
+  public createAppointment(obj: any): Observable<any> {
+    return this.apiService.post('/api/appointment', obj);
   }
 
-  public listDoctor(): Observable<any> {
-    const url = '/api/listDoctors';
+  public listAppointment(): Observable<any> {
+    const url = '/api/listAppointments';
     return this.apiService.get<any>(url).pipe(
         catchError((error: HttpErrorResponse) => {
             if (error.status == 404) {

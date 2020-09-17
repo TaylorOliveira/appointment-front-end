@@ -32,8 +32,6 @@ export class AppComponent {
     _requisicaoService.finalizouRequisicao$.subscribe(
       ret => this.processando = false
     )
-
-    console.log(this.usuario);
   }
 
   logout() {

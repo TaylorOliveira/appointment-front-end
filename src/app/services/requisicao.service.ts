@@ -29,13 +29,11 @@ export class RequisicaoService {
 
   private iniciarRequisicao(url?: string) {
     this.reqsAndamento++;
-    console.log(`iniciar (${url})... ${this.reqsAndamento}`);
     this.iniciouRequisicaoSource.next();
   }
 
   finalizarRequisicao(url?: string) {
     this.reqsAndamento--;
-    console.log(`finalizar (${url})... ${this.reqsAndamento}`);
     if (this.reqsAndamento <= 0) {
       this.finalizouRequisicaoSource.next();
       if (this.reqsAndamento < 0) {
