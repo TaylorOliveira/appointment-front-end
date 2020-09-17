@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+import { DoctorService } from '../services/doctor.service';
 
 @Component({
   selector: 'app-doctor',
@@ -7,19 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DoctorComponent implements OnInit {
 
-  doctors: any[] = 
-    [
-      {
-        "id": 1,
-        "nome": "TAYLOR SANTOS OLIVEIRA",
-        "crm": "56789/RQE 0001"
-      }
-    ];
+  doctors: any[] = [];
 
-  constructor() { }
+  constructor(private doctorService: DoctorService) { }
 
   ngOnInit() {
-    console.log(this.doctors);
+    this.listDoctor();
+  }
+
+  public listDoctor(){
+    this.doctorService.listDoctor()
+    .pipe(
+        catchError((): Observable<any> => {
+            return null;
+        })
+    ).subscribe((dados: any) => {
+      this.doctors = dados;
+    });
   }
 
   getDoctors(){
