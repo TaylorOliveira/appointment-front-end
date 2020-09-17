@@ -1,1 +1,19 @@
-<p>doctor works!</p>
+<div class="container">
+
+    <h3>Médicos</h3>
+
+    <table class="table table-hover">
+        <thead class="thead-dark">
+            <tr class="text-center">
+            <th scope="col">Nome</th>
+            <th scope="col">CRM</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="text-center" *ngFor="let doctor of doctors">
+                <td scope="row">{{doctor.nome}}</td>
+                <td scope="row">{{doctor.crm}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

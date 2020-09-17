@@ -1,1 +1,25 @@
-<p>home works!</p>
+<div class="container">
+
+    <h3>Consultas</h3>
+
+    <div class="float-right">
+        <a href="/appointment" class="btn btn-primary stretched-link mb-1">Agendar consulta</a>
+    </div>
+
+    <table class="table table-hover">
+        <thead class="thead-dark">
+            <tr class="text-center">
+            <th scope="col">Data</th>
+            <th scope="col">Médico</th>
+            <th scope="col">Paciente</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="text-center" *ngFor="let appointment of appointments">
+                <td scope="row">{{appointment.apponintmentTime | date: 'dd/MM/yyyy hh:mm'}}</td>
+                <td scope="row">{{appointment.doctorResponse.nome}} - {{appointment.doctorResponse.crm}}</td>
+                <td scope="row">{{appointment.patientResponse.name}} - {{appointment.patientResponse.cpf | mask: '000.000.000-99'}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
