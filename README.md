@@ -6,9 +6,13 @@ Simple appointment scheduling software
   - Register Appointment
   - Listing Doctors
   - Listing Appointments
-  
- ### Installation
+ 
+This application uses login with JWT authentication.
 
+### Installation
+ 
+To run the application install the [node](https://nodejs.org/en/). Then install the [angular cli](https://angular.io/cli).
+Run
 ```
 npm install
 ```
