@@ -16,7 +16,7 @@ Run
 ```
 npm install
 ```
-and
+and after that
 ```
 ng serve 
 ```
